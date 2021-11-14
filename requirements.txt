@@ -2,12 +2,9 @@
 selenium==4.0.0
 jupyterlab==3.2.2
 beautifulsoup4==4.10.0
-
-webdriver-manager==3.5.2
-pydub
-SpeechRecognition
-
-black # for formatting
+pydub==0.25.1
+SpeechRecognition==3.8.1
+black==21.10b0
 
 # step 2
 # scrapy==2.5.1
