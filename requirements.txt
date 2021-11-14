@@ -5,6 +5,7 @@ beautifulsoup4==4.10.0
 pydub==0.25.1
 SpeechRecognition==3.8.1
 black==21.10b0
+psycopg2==2.9.2
 
 # step 2
 # scrapy==2.5.1
