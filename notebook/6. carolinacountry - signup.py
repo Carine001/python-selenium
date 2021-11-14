@@ -2,7 +2,6 @@ import requests
 import io
 import random
 import time
-import os
 import sys
 
 # Speech Recognition Imports
@@ -12,6 +11,7 @@ import speech_recognition as sr
 # Selenium
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 
 # check if using python 3
@@ -52,7 +52,7 @@ class breakCaptcha(object):
 
     def is_exists_by_xpath(self, xpath):
         try:
-            self.driver.find_element_by_xpath(xpath)
+            self.driver.find_element(By.XPATH, xpath)
         except NoSuchElementException:
             return False
         return True
@@ -64,7 +64,7 @@ class breakCaptcha(object):
             time.sleep(random.uniform(MIN_RAND, MAX_RAND))
 
             # Get all the iframes on the page
-            iframes = self.driver.find_elements_by_tag_name("iframe")
+            iframes = self.driver.find_elements(By.TAG_NAME, "iframe")
 
             # Switch focus to ReCaptcha iframe
             self.driver.switch_to.frame(iframes[0])
@@ -76,8 +76,8 @@ class breakCaptcha(object):
                 continue
 
             # Click on ReCaptcha checkbox
-            self.driver.find_element_by_xpath(
-                '//span[.//div[@class="recaptcha-checkbox-checkmark" and @role="presentation"]]'
+            self.driver.find_element(
+                By.XPATH, '//span[.//div[@class="recaptcha-checkbox-checkmark" and @role="presentation"]]'
             ).click()
             time.sleep(random.uniform(LONG_MIN_RAND, LONG_MAX_RAND))
 
@@ -98,7 +98,7 @@ class breakCaptcha(object):
 
         print("[{0}] Clicking on audio challenge")
         # Click on the audio challenge button
-        self.driver.find_element_by_xpath('//button[@id="recaptcha-audio-button"]').click()
+        self.driver.find_element(By.XPATH, '//button[@id="recaptcha-audio-button"]').click()
         time.sleep(random.uniform(LONG_MIN_RAND, LONG_MAX_RAND))
 
     def get_challenge_audio(self, url):
@@ -158,11 +158,11 @@ class breakCaptcha(object):
         # If text challenge - reload the challenge
         while self.is_exists_by_xpath('//div[@class="rc-text-challenge"]'):
             print("[{0}] Got a text challenge! Reloading!")
-            self.driver.find_element_by_id("recaptcha-reload-button").click()
+            self.driver.find_element(By.ID, "recaptcha-reload-button").click()
             time.sleep(random.uniform(MIN_RAND, MAX_RAND))
 
         # Get the audio challenge URI from the download link
-        download_object = self.driver.find_element_by_xpath('//a[@class="rc-audiochallenge-download-link"]')
+        download_object = self.driver.find_element(By.XPATH, '//a[@class="rc-audiochallenge-download-link"]')
         download_link = download_object.get_attribute("href")
 
         # Get the challenge audio to send to Google
@@ -172,11 +172,11 @@ class breakCaptcha(object):
         audio_output = self.speech_to_text(converted_audio)
 
         # Enter the audio challenge solution
-        self.driver.find_element_by_id("audio-response").send_keys(audio_output)
+        self.driver.find_element(By.ID, "audio-response").send_keys(audio_output)
         time.sleep(random.uniform(LONG_MIN_RAND, LONG_MAX_RAND))
 
         # Click on verify
-        self.driver.find_element_by_id("recaptcha-verify-button").click()
+        self.driver.find_element(By.ID, "recaptcha-verify-button").click()
         time.sleep(random.uniform(LONG_MIN_RAND, LONG_MAX_RAND))
 
         return True
@@ -189,7 +189,7 @@ class breakCaptcha(object):
         self.driver.switch_to.default_content()
 
         # Get all the iframes on the page again- there is a new one with a challenge
-        iframes = self.driver.find_elements_by_tag_name("iframe")
+        iframes = self.driver.find_elements(By.TAG_NAME, "iframe")
 
         # Get audio challenge
         self.get_audio_challenge(iframes)
