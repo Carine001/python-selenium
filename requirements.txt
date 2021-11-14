@@ -1,10 +1,16 @@
 # step 1
 selenium==4.0.0
 jupyterlab==3.2.2
+beautifulsoup4==4.10.0
+
+webdriver-manager==3.5.2
+pydub
+SpeechRecognition
+
+black # for formatting
 
 # step 2
 # scrapy==2.5.1
-# beautifulsoup4==4.10.0
 # pandas==1.3.4
 # numpy==1.21.4
 # isort
