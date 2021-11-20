@@ -41,6 +41,8 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+pytestdebug.log
+*.pyc
 
 # Scrapy
 .scrapy

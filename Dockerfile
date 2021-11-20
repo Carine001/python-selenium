@@ -11,3 +11,6 @@ RUN pip3 install -r /selenium-python/requirements.txt
 WORKDIR /selenium-python
 
 CMD "pytest"
+
+# https://stackoverflow.com/a/60797635
+ENV PYTHONDONTWRITEBYTECODE=true
