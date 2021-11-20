@@ -1,6 +1,7 @@
 import pytest
 from Checkout import Checkout
 
+
 @pytest.fixture()
 def checkout():
     checkout = Checkout()

@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class FitnessLog:
     def __init__(self, activities=None):
         self._activities = activities if activities is not None else []

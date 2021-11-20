@@ -1,18 +1,15 @@
-import requests
 import io
 import random
-import time
 import sys
+import time
 
-# Speech Recognition Imports
-from pydub import AudioSegment
+import requests
 import speech_recognition as sr
-
-# Selenium
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
+from pydub import AudioSegment
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.common.by import By
 
 # check if using python 3
 if sys.version_info[0] >= 3:
@@ -76,9 +73,7 @@ class breakCaptcha(object):
                 continue
 
             # Click on ReCaptcha checkbox
-            self.driver.find_element(
-                By.XPATH, '//span[.//div[@class="recaptcha-checkbox-checkmark" and @role="presentation"]]'
-            ).click()
+            self.driver.find_element(By.XPATH, '//span[.//div[@class="recaptcha-checkbox-checkmark" and @role="presentation"]]').click()
             time.sleep(random.uniform(LONG_MIN_RAND, LONG_MAX_RAND))
 
             # Check if the ReCaptcha has no challenge
@@ -149,9 +144,7 @@ class breakCaptcha(object):
 
     def solve_audio_challenge(self):
         # Verify audio challenge download button is present
-        if not self.is_exists_by_xpath('//a[@class="rc-audiochallenge-download-link"]') and not self.is_exists_by_xpath(
-            '//div[@class="rc-text-challenge"]'
-        ):
+        if not self.is_exists_by_xpath('//a[@class="rc-audiochallenge-download-link"]') and not self.is_exists_by_xpath('//div[@class="rc-text-challenge"]'):
             print("[{0}] No element in audio challenge download link!!")
             return False
 
