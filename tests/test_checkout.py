@@ -1,4 +1,5 @@
 import pytest
+
 from scripts.checkout import Checkout
 
 

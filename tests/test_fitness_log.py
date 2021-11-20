@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import pytest
+
 from scripts.fitness_log import FitnessLog
 
 
