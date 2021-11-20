@@ -1,16 +1,17 @@
-print('Hello world')
+print("Hello world")
 
-# find the biggest number in an array
+
 def find_max(arr):
-    max = arr[0]
+    max_value = arr[0]
     for i in range(1, len(arr)):
-        if arr[i] > max:
-            max = arr
-    return max
+        if arr[i] > max_value:
+            max_value = arr
+    return max_value
+
 
 def find_min(arr):
-    min = arr[0]
+    min_value = arr[0]
     for i in range(1, len(arr)):
-        if arr[i] < min:
-            min = arr[i]
-    return min
+        if arr[i] < min_value:
+            min_value = arr[i]
+    return min_value

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import pytest
-from fitness_log import FitnessLog
+from scripts.fitness_log import FitnessLog
 
 
 @pytest.fixture(scope="function")
