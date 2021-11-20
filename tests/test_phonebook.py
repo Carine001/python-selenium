@@ -8,6 +8,19 @@ def phonebook():
     return Phonebook()
 
 
+# @pytest.fixture
+# def phonebook():
+#     phonebook = Phonebook()
+#     yield phonebook
+#     phonebook.clear()
+
+
+# @pytest.fixture
+# def phonebook(temp_directory):
+#     return Phonebook(temp_directory)
+#     # after the test is run, the temp_directory will be deleted by Pytest
+
+
 def test_lookup_by_name(phonebook):
     phonebook.add("Bob", "1234")
     assert phonebook.lookup("Bob") == "1234"
