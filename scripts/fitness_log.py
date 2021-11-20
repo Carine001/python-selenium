@@ -9,23 +9,20 @@ class FitnessLog:
             raise Exception("A new activity must not conflict with a logged activity. " + "Please delete the old activity before proceeding")
 
     def validate_entry(self, start_time, end_time):
-        if start_time.year == end_time.year and start_time.month == end_time.month and start_time.day == end_time.day and start_time < end_time:
-            return True
-        else:
-            return False
+        return start_time.year == end_time.year and start_time.month == end_time.month and start_time.day == end_time.day and start_time < end_time
 
     def overlapping_entry(self, start_time, end_time):
         if self._activities == []:
             return False
-        else:
-            not_overlapping = True
-            for exercise in self._activities:
-                logged_start = exercise[1]
-                logged_end = exercise[2]
-                not_overlapping = (start_time < logged_end) and (end_time > logged_start)
-                if not_overlapping is False:
-                    return not_overlapping
-            return not_overlapping
+
+        not_overlapping = True
+        for exercise in self._activities:
+            logged_start = exercise[1]
+            logged_end = exercise[2]
+            not_overlapping = (start_time < logged_end) and (end_time > logged_start)
+            if not_overlapping is False:
+                return not_overlapping
+        return not_overlapping
 
     def delete_activity(self, kind, start_time, end_time):
         for idx, activity in enumerate(self._activities):

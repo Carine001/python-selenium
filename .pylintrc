@@ -62,6 +62,15 @@ suggestion-mode=yes
 # active Python interpreter and may run arbitrary code.
 unsafe-load-any-extension=no
 
+disable=
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    E0401, # import-error
+    W0621, # redefined-builtin
+    R0903, # too-few-public-methods
+    R0201, # no-self-use
+
 
 [MESSAGES CONTROL]
 

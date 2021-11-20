@@ -4,10 +4,10 @@ import pytest
 # will be running before each test
 @pytest.fixture
 def numbers():
-    a = 10
-    b = 20
-    c = 30
-    return [a, b, c]
+    abc = 10
+    mno = 20
+    xyz = 30
+    return [abc, mno, xyz]
 
 
 # def test_number_in_array(numbers):
@@ -16,5 +16,5 @@ def numbers():
 
 
 def test_number_not_in_array(numbers):
-    x = 20
-    assert numbers[1] == x
+    variable = 20
+    assert numbers[1] == variable

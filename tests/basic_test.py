@@ -1,22 +1,22 @@
 import pytest
 
 
-def addition(a, b):
-    return a + b
+def addition(first, second):
+    return first + second
 
 
-def multiplication(a, b):
-    return a * b
+def multiplication(first, second):
+    return first * second
 
 
 @pytest.mark.one
 def test_addition_should_work():
     # arrange
-    a = 1
-    b = 2
+    first = 1
+    second = 2
 
     # act
-    result = addition(a, b)
+    result = addition(first, second)
 
     # assert
     assert result == 3
@@ -25,11 +25,11 @@ def test_addition_should_work():
 # @pytest.mark.two
 # def test_addition_should_fail():
 #     # arrange
-#     a = 2
-#     b = 2
+#     first = 2
+#     second = 2
 
 #     # act
-#     result = multiplication(a, b)
+#     result = multiplication(first, second)
 
 #     # assert
 #     assert result == 5
@@ -48,4 +48,4 @@ def test_letter_should_be_in_string():
 #     word = "Hello"
 
 #     # assert
-#     assert 'f' in word
+#     assert "f" in word

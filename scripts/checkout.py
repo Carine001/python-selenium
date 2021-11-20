@@ -1,7 +1,7 @@
 class Checkout:
     class Discount:
         def __init__(self, nbr_items, price):
-            self.nbrItems = nbr_items
+            self.nbr_item = nbr_items
             self.price = price
 
     def __init__(self):
@@ -35,7 +35,7 @@ class Checkout:
         total = 0
         if item in self.discounts:
             discount = self.discounts[item]
-            if cnt >= discount.nbrItems:
+            if cnt >= discount.nbr_item:
                 total += self.calculate_item_discounted_total(item, cnt, discount)
             else:
                 total += self.prices[item] * cnt
@@ -46,8 +46,8 @@ class Checkout:
 
     def calculate_item_discounted_total(self, item, cnt, discount):
         total = 0
-        nbr_of_discounts = cnt / discount.nbrItems
+        nbr_of_discounts = cnt / discount.nbr_item
         total += nbr_of_discounts * discount.price
-        remaining = cnt % discount.nbrItems
+        remaining = cnt % discount.nbr_item
         total += remaining * self.prices[item]
         return total
