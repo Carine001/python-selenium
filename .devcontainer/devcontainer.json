@@ -1,0 +1,31 @@
+{
+  "name": "selenium-python",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "settings": {
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+    "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+    "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+    "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+  },
+  "extensions": [
+    "editorconfig.editorconfig",
+    "hbenl.vscode-test-explorer",
+    "kevinglasson.cornflakes-linter",
+    "KevinRose.vsc-python-indent",
+    "LittleFoxTeam.vscode-python-test-adapter",
+    "magicstack.MagicPython",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.jupyter",
+    "ms-vscode.test-adapter-converter",
+    "the-compiler.python-tox",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "vscode-icons-team.vscode-icons"
+  ]
+}
