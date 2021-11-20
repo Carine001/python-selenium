@@ -2,11 +2,10 @@ import os
 
 
 class Phonebook:
-
-    def __init__(self, cache_directory):
+    def __init__(self):
         self.numbers = {}
-        self.filename = os.path.join(cache_directory, "phonebook.txt")
-        self.cache = open(self.filename, "w")
+        self.filename = "scripts/phonebook.txt"
+        self.cache = open(self.filename, "w", encoding="utf-8")
 
     def add(self, name, number):
         self.numbers[name] = number

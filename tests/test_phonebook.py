@@ -4,14 +4,13 @@ from scripts.phonebook import Phonebook
 
 
 @pytest.fixture
-def phonebook(tmpdir):
-    "Provides an empty Phonebook"
-    return Phonebook(tmpdir)
+def phonebook():
+    return Phonebook()
 
 
 def test_lookup_by_name(phonebook):
     phonebook.add("Bob", "1234")
-    assert "1234" == phonebook.lookup("Bob")
+    assert phonebook.lookup("Bob") == "1234"
 
 
 def test_phonebook_contains_all_names(phonebook):
