@@ -15,7 +15,7 @@ from selenium.webdriver.common.by import By
 if sys.version_info[0] >= 3:
     xrange = range
 
-chrome_service = ChromeService(r"C:\Users\wassi\source\repos\python-selenium\drivers\chrome-driver.exe")
+chrome_service = ChromeService(r"C:\Users\wassi\source\repos\python-selenium\drivers\chromedriver.exe")
 
 # Randomization Related
 MIN_RAND = 0.64
