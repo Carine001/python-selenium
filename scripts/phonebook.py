@@ -5,7 +5,7 @@ class Phonebook:
     def __init__(self):
         self.numbers = {}
         self.filename = "scripts/phonebook.txt"
-        self.cache = open(self.filename, "w", encoding="utf-8")
+        self.cache = open(self.filename, "w", encoding="utf-8")  # pylint: disable=consider-using-with
 
     # def __init__(self, cache_folder):
     #     self.numbers = {}
